@@ -1,7 +1,9 @@
 import React from 'react';
 
 const getData = async () => {
-  const response = await fetch('http://192.168.0.101:8080/api/post');
+  const response = await fetch(
+    'https://5f63-93-171-78-235.ngrok-free.app/api/post',
+  );
 
   return response.json();
 };
