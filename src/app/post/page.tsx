@@ -11,7 +11,7 @@ const page = async () => {
   return (
     <div>
       <ul>
-        {posts.map((post) => {
+        {posts.map((post: any) => {
           return <li key={post._id}>{post._id}</li>;
         })}
       </ul>
