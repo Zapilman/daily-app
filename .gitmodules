@@ -1,0 +1,3 @@
+[submodule "src/_ui"]
+	path = src/_ui
+	url = https://github.com/Zapilman/daily-ui.git

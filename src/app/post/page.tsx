@@ -1,22 +1,31 @@
+import { Metadata } from 'next';
 import React from 'react';
+import { PostInfo } from '@/_ui/src/components/PostInfo';
+import { TPost } from '../../../_store/API/entities/Post/post.types';
+import API from '_store/API';
+import { log } from 'console';
+import { Posts } from '_modules/post/Posts';
 
 const getData = async () => {
-  const response = await fetch('http://192.168.0.101:8080/api/post');
+  const posts = await API.Post.getAllPost({
+    next: {
+      revalidate: 1,
+    },
+  });
 
-  return response.json();
+  return posts;
+};
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const posts = await getData();
+  return {
+    title: posts.length + 'posts',
+  };
 };
 
 const page = async () => {
   const posts = await getData();
-  return (
-    <div>
-      <ul>
-        {posts.map((post: any) => {
-          return <li key={post._id}>{post._id}</li>;
-        })}
-      </ul>
-    </div>
-  );
+  return <Posts posts={posts} />;
 };
 
 export default page;

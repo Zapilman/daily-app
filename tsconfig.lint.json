@@ -1,0 +1,43 @@
+{
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", "src/_ui", "./dist/", "tsconfig.json"],
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"],
+      "_store/*": ["./_store/*"],
+      "_modules/*": ["./_modules/*"]
+    },
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "."
+    // "paths": {
+    //   "_components/*": ["./src/components/*"],
+    //   "_modules/*": ["./src/modules/*"],
+    //   "_UI/*": ["./src/UI/*"],
+    //   "_store/*": ["./src/store/*"],
+    //   "_styles/*": ["./src/styles/*"]
+    //   // "_hooks/*": ["./src/hooks/*"]
+    // }
+  }
+}
